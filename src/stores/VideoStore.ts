@@ -47,6 +47,12 @@ export const store = VideoStore.create({
   videos: [
     {
       id: "1",
+      title: "Elephant Dream",
+      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      thumbnail: "https://i.ytimg.com/vi/w35vIqSvqI4/maxresdefault.jpg",
+    },
+    {
+      id: "2",
       title: "For Bigger Blazes",
       url: "https://vjs.zencdn.net/v/oceans.mp4",
       thumbnail: "https://vjs.zencdn.net/v/oceans.png",
@@ -55,19 +61,14 @@ export const store = VideoStore.create({
       id: "4",
       title: "Big Buck Bunny",
       url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      thumbnail: "/placeholder.svg?height=120&width=160",
-    },
-    {
-      id: "2",
-      title: "Elephant Dream",
-      url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      thumbnail: "/placeholder.svg?height=120&width=160",
+      thumbnail:
+        "https://upload.wikimedia.org/wikipedia/commons/7/70/Big.Buck.Bunny.-.Opening.Screen.png",
     },
     {
       id: "3",
       title: "Sintel",
       url: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-      thumbnail: "/placeholder.svg?height=120&width=160",
+      thumbnail: "https://picfiles.alphacoders.com/124/124263.jpg",
     },
   ],
   currentVideoId: "1",

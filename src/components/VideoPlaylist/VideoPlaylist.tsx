@@ -28,6 +28,7 @@ export const VideoPlaylist = observer(() => {
               <h4 className="font-medium">{video.title}</h4>
             </div>
             <button
+              className="bg-button hover:bg-button-hover text-text px-4 py-2 rounded"
               onClick={(e) => {
                 e.stopPropagation();
                 store.removeVideo(video.id);
