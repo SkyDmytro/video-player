@@ -1,0 +1,33 @@
+.video-js {
+  /* Custom Video.js theme */
+  --vjs-theme-city--primary: #ff0000;
+  --vjs-theme-city--secondary: #fff;
+}
+
+.video-js .vjs-big-play-button {
+  background-color: rgba(255, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  margin-left: -30px;
+  margin-top: -30px;
+}
+
+.video-js .vjs-control-bar {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.video-js .vjs-slider {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.video-js .vjs-play-progress {
+  background-color: var(--vjs-theme-city--primary);
+}
+
+.video-js .vjs-volume-level {
+  background-color: var(--vjs-theme-city--primary);
+}
+

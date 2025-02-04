@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  height: 100vh;
+  width: 100vw;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* :root[data-theme="light"]    <div className="w-4 h-4 bg-secondary "></div>
+      <button className="bg-border w-10 h-10"></button>
+      <div className="bg-backgroundColor w-10 h-10"></div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+          Theme
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>{
+  --color-background: 247, 247, 248;
+  --color-text: 34, 34, 34;
+  --color-primary: 231, 76, 100;
+  --color-secondary: 255, 255, 255;
+  --color-border: 221, 221, 221;
+  --color-button: 231, 76, 100;
+  --color-button-hover: 212, 59, 85;
+}
+:root[data-theme="dark"] {
+  --color-background: 18, 18, 18;
+  --color-text: 224, 224, 224;
+  --color-primary: 231, 76, 100;
+  --color-secondary: 30, 30, 30;
+  --color-border: 51, 51, 51;
+  --color-button: 231, 76, 100;
+  --color-button-hover: 212, 59, 85;
+} */
+.light {
+  --color-background: 247, 247, 248;
+  --color-secondaryBackground: 249, 250, 251;
+  --color-text: 34, 34, 34;
+  --color-primary: 231, 76, 100;
+  --color-secondary: 255, 255, 255;
+  --color-border: 221, 221, 221;
+  --color-button: 231, 76, 100;
+  --color-button-hover: 212, 59, 85;
+}
+.dark {
+  --color-background: 18, 18, 18;
+--color-secondaryBackground: 32, 32, 36;
+  --color-text: 224, 224, 224;
+  --color-primary: 231, 76, 100;
+  --color-secondary: 30, 30, 30;
+  --color-border: 51, 51, 51;
+  --color-button: 231, 76, 100;
+  --color-button-hover: 212, 59, 85;
+} */
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
