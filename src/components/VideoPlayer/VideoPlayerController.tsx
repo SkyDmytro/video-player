@@ -1,32 +1,35 @@
 import "./styles/videoPlayer.css";
-import { observer } from "mobx-react-lite";
-import type Player from "video.js/dist/types/player";
 import "video.js/dist/video-js.css";
+import { observer } from "mobx-react-lite";
+import { useEffect } from "react";
 import { store } from "../../stores/VideoStore";
 import { VideoJsPlayer } from "./ui/VideoPlayer";
+import { WebCamComponent } from "./ui/WebCamComponent";
+import { getWebcam } from "../../helpers/utils";
 
 export const VideoPlayer = observer(() => {
-  const { currentVideo } = store;
+  const { currentVideo, isWebcam } = store;
+
+  useEffect(() => {
+    if (isWebcam) {
+      (async () => {
+        const video = document.querySelector("#webcam") as HTMLVideoElement;
+        const stream = await getWebcam();
+        video.srcObject = stream;
+      })();
+    }
+  }, [isWebcam]);
+
+  if (isWebcam) return <WebCamComponent />;
+
+  if (!currentVideo) return <div>No video selected</div>;
 
   const videoJsOptions = {
-    sources: currentVideo
-      ? [
-          {
-            src: currentVideo.url,
-            type: "video/mp4",
-          },
-        ]
-      : [],
-    poster: currentVideo?.thumbnail || "",
+    autoplay: false,
+    controls: true,
+    sources: [{ src: currentVideo.url, type: "video/mp4" }],
+    poster: currentVideo.thumbnail || "",
   };
 
-  const handlePlayerReady = (player: Player) => {
-    console.log("player is ready", player);
-  };
-
-  if (!currentVideo) {
-    return <div>No video selected</div>;
-  }
-
-  return <VideoJsPlayer options={videoJsOptions} onReady={handlePlayerReady} />;
+  return <VideoJsPlayer options={videoJsOptions} />;
 });
