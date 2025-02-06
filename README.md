@@ -1,51 +1,65 @@
-# React + TypeScript + Vite
+# Video Player with React, Video.js, and MobX-state-tree
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a video player built with React, Video.js, and MobX-state-tree. The application allows users to:
 
-Currently, two official plugins are available:
+* Play videos from a list of 3-5 sources (both remote videos and webcam).
+* Control playback (pause, volume, fullscreen ).
+* Manage a video playlist with MobX-state-tree (add, remove).
+* Automatically switch to the next video in the playlist.
+* Implement a rating and feedback system for each video.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Video Playback
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+* Play videos from different sources (remote URLs Mp4).
+* Play video from webcam (excluding the webcam recording functionality).
 
-- Configure the top-level `parserOptions` property like this:
+### Playback Controls
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+* Pause/Play.
+* Volume control.
+* Fullscreen mode toggle.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Playlist Management
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+* Add, remove videos in the playlist using MobX-state-tree.
+* Automatically play the next video in the list once the current one finishes.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# video-player
+### Rating System
+
+* Users can rate videos and leave feedback, which is saved in the store.
+
+## Technologies Used
+
+* React: JavaScript library for building user interfaces.
+* Video.js: Popular video player for embedding video content.
+* MobX-state-tree: State management library for handling the application state.
+* HTML5 Video API: For handling video-related functionality.
+
+## How to Run the Project
+
+### Clone the repository:
+
+`git clone https://github.com/SkyDmytro/video-player.git`
+
+### Navigate to the project directory:
+
+  
+  
+
+`cd video-player`
+
+  
+
+### Install dependencies:
+
+  
+
+`npm install`
+
+### Start the development server:
+
+`npm start`
+
+Open http://localhost:5173/ in your browser.
