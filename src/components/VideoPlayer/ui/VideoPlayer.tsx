@@ -1,10 +1,22 @@
 import { useEffect, useRef } from "react";
 import videojs from "video.js";
+import type Player from "video.js/dist/types/player";
+import { store } from "../../../stores/VideoStore";
+import { observer } from "mobx-react-lite";
+
 interface VideoPlayerProps {
-  options: any;
-  onReady: (player: Player) => void;
+  options: {
+    autoplay: boolean;
+    controls: boolean;
+    sources: {
+      src: string;
+      type: string;
+    }[];
+    poster: string;
+  };
 }
-export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
+
+export const VideoJsPlayer = observer(({ options }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLDivElement | null>(null);
   const playerRef = useRef<Player | null>(null);
 
@@ -12,6 +24,7 @@ export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
     if (!playerRef.current && videoRef.current) {
       const videoElement = document.createElement("video-js");
       videoRef.current.appendChild(videoElement);
+      console.log(options);
 
       const player = (playerRef.current = videojs(
         videoElement,
@@ -20,6 +33,7 @@ export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
           controls: true,
           fluid: true,
           responsive: true,
+          autoplay: true,
           playbackRates: [0.5, 1, 1.5, 2],
           controlBar: {
             children: [
@@ -38,15 +52,14 @@ export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
         },
         () => {
           videojs.log("player is ready");
-          // onReady(player);
         }
       ));
 
-      player.on("play", () => console.log("video play"));
-      player.on("pause", () => console.log("video pause"));
-      player.on("ended", () => console.log("video ended"));
-    } else if (playerRef.current) {
-      playerRef.current.src(options.sources);
+      player.on("ended", () => {
+        if (store.autoplay) {
+          store.playNextVideo();
+        }
+      });
     }
 
     return () => {
@@ -55,7 +68,7 @@ export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
         playerRef.current = null;
       }
     };
-  }, [options, onReady]);
+  }, [options]);
 
   return (
     <div
@@ -64,4 +77,4 @@ export const VideoJsPlayer = ({ options, onReady }: VideoPlayerProps) => {
       className="vjs-custom-theme w-full h-auto"
     />
   );
-};
+});

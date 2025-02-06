@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {
+import {
   createContext,
   ReactNode,
   useContext,
@@ -8,23 +8,21 @@ import React, {
 } from "react";
 import "./App.css";
 import { Header } from "./components/Header/Header";
-import {
-  VideoJsController,
-  VideoJsPlayer,
-  VideoPlayer,
-} from "./components/VideoPlayer/VideoPlayerController";
+import { VideoPlayer } from "./components/VideoPlayer/VideoPlayerController";
 import { VideoPlaylist } from "./components/VideoPlaylist/VideoPlaylist";
 import { Description } from "./components/Description/Description";
+import { CameraButton } from "./components/NewVideoInput/CameraButton";
+import { AddNewVideo } from "./components/VideoPlayer/ui/AddNewVideo";
 
 const ThemeContext = createContext({
-  theme: "light",
+  theme: "dark",
   toggleTheme: () => {},
 });
 
 export const useTheme = () => useContext(ThemeContext);
 
 function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   useEffect(() => {
     document.getElementById("theme-container")!.className =
@@ -54,9 +52,10 @@ function App() {
           <Header />
           <div className="grid gap-6 md:grid-cols-[2fr,1fr] container">
             <VideoPlayer />
-            <div className="">
-              <div>
-                <input type="text" className="w-full h-10 bg-red-500" />
+            <div>
+              <div className="flex w-full gap-4">
+                <AddNewVideo />
+                <CameraButton />
               </div>
               <VideoPlaylist />
             </div>
