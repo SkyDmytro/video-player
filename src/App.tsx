@@ -12,7 +12,7 @@ import {
   VideoJsController,
   VideoJsPlayer,
   VideoPlayer,
-} from "./components/VideoPlayer/VideoPlayer";
+} from "./components/VideoPlayer/VideoPlayerController";
 import { VideoPlaylist } from "./components/VideoPlaylist/VideoPlaylist";
 import { Description } from "./components/Description/Description";
 
