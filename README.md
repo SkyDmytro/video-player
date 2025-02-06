@@ -60,6 +60,6 @@ This project is a video player built with React, Video.js, and MobX-state-tree. 
 
 ### Start the development server:
 
-`npm start`
+`npm run dev`
 
 Open http://localhost:5173/ in your browser.
